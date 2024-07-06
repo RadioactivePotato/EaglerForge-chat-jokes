@@ -1,5 +1,5 @@
-# EaglerForge-chat-jokes
+# EaglerForge Chat Jokes
 
-Mod that send a joke from icanhazdadjoke.com every 10 seconds
+EaglerForge mod that send a joke from icanhazdadjoke.com every 15 seconds
 
 Toggle on and off with `.joke`

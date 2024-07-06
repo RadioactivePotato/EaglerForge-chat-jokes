@@ -1,2 +1,5 @@
 # EaglerForge-chat-jokes
-Send a joke every 10 seconds in chat - toggle with .joke
+
+Mod that send a joke from icanhazdadjoke.com every 10 seconds
+
+Toggle on and off with `.joke`

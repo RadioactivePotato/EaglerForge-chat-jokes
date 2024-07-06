@@ -2,7 +2,7 @@ ModAPI.require("player");
 
 var toggled = false;
 var fetchingJoke = false;
-const JOKE_FETCH_INTERVAL = 10000; // 10 seconds in milliseconds
+const JOKE_FETCH_INTERVAL = 15000; // 15 seconds in milliseconds
 var lastJokeTime = 0;
 
 ModAPI.addEventListener("update", () => {
@@ -40,9 +40,17 @@ function fetchJokeAndSend() {
         .then(response => response.json())
         .then(data => {
             const joke = data.joke;
-            ModAPI.player.sendChatMessage({ message: joke });
-            lastJokeTime = Date.now();
-            resolve();
+            const jokeLines = joke.split("\n");
+
+            jokeLines.forEach((line, index) => {
+                setTimeout(() => {
+                    ModAPI.player.sendChatMessage({ message: line.trim() });
+                    if (index === jokeLines.length - 1) {
+                        lastJokeTime = Date.now();
+                        resolve();
+                    }
+                }, index * 2000);
+            });
         })
         .catch(error => {
             console.error("Error fetching joke:", error);

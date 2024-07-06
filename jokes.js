@@ -2,7 +2,7 @@ ModAPI.require("player");
 
 var toggled = false;
 var fetchingJoke = false;
-const JOKE_FETCH_INTERVAL = 10000; // 30 seconds in milliseconds
+const JOKE_FETCH_INTERVAL = 10000; // 10 seconds in milliseconds
 var lastJokeTime = 0;
 
 ModAPI.addEventListener("update", () => {
